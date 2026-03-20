@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #f8f9fb;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: white;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-weight: bold;
+    color: #2b59ff;
+    font-size: 1.3rem;
+}
+
+.nav-links a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #2b59ff;
+}
+
+/* Slots Section */
+.slots-section {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.floor-container {
+    margin: 2rem auto;
+    width: 600px;
+    background: #fff;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.floor-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+/* Slot Grid */
+.slots-grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px; /* even spacing between left and right section */
+}
+
+.left-section,
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* equal vertical spacing */
+}
+
+.row {
+    display: flex;
+    justify-content: center; /* center slots in row */
+    gap: 20px; /* equal horizontal spacing */
+}
+
+/* Slot Styles */
+.slot {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 60px;
+    box-sizing: border-box;
+}
+
+.slot.free { background: #e6ffed; border-color: #34d058; cursor: pointer; }
+.slot.reserved { background: #fff8e6; border-color: #f9c846; }
+.slot.occupied { background: #ffeef0; border-color: #d73a49; cursor: not-allowed; }
+
+.slot.free:hover { 
+    transform: scale(1.05); 
+    background: #c9ffd7; 
+    box-shadow: 0 0 10px rgba(52,208,88,0.5);
+}
+
+/* Popup Styles */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}

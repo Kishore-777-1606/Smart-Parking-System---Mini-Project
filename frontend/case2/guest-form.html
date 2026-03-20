@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest Parking Reservation</title>
+  <link rel="stylesheet" href="css/guest-form.css">
+</head>
+<body>
+  <header>
+    <h1>Guest Parking Reservation</h1>
+    <p>Fill out the form below to reserve your parking slot.</p>
+  </header>
+
+  <main>
+    <form id="guestForm" class="form-container">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter phone number" pattern="[0-9]{10}" required>
+      </div>
+
+      <div class="form-group">
+        <label for="vehicle">Vehicle Number</label>
+        <input type="text" id="vehicle" name="vehicle" placeholder="e.g. TN59AB1234" required>
+      </div>
+
+      <div class="form-group">
+        <label for="date">Parking Date</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+
+      <div class="form-group">
+        <label for="time">Parking Time</label>
+        <input type="time" id="time" name="time" required>
+      </div>
+
+      <button type="submit" class="btn-primary">Check Availability</button>
+    </form>
+  </main>
+
+  <script src="js/guest-form.js"></script>
+</body>
+</html>

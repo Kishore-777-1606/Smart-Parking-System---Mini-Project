@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "name": "Kishore Kumar",
+    "vehicleNumber": "TN59AB0001",
+    "type": "subscribed",
+    "subscription": { "startDate": "2025-09-01", "endDate": "2025-09-30", "assignedSlot": "F1-S01" },
+    "qrCode": "ID-0001"
+  },
+  {
+    "id": 2,
+    "name": "Blesston Raj",
+    "vehicleNumber": "TN59AB0002",
+    "type": "subscribed",
+    "subscription": { "startDate": "2025-09-01", "endDate": "2025-09-30", "assignedSlot": "F1-S02" },
+    "qrCode": "ID-0002"
+  },
+  {
+    "id": 3,
+    "name": "Priya Natarajan",
+    "vehicleNumber": "TN59AB0003",
+    "type": "subscribed",
+    "subscription": { "startDate": "2025-09-01", "endDate": "2025-09-30", "assignedSlot": "F1-S03" },
+    "qrCode": "ID-0003"
+  },
+  {
+    "id": 4,
+    "name": "Sathish Kumar",
+    "vehicleNumber": "TN59AB0004",
+    "type": "subscribed",
+    "subscription": { "startDate": "2025-09-01", "endDate": "2025-09-30", "assignedSlot": "F1-S04" },
+    "qrCode": "ID-0004"
+  },
+  {
+    "id": 5,
+    "name": "Anitha R",
+    "vehicleNumber": "TN59AB0005",
+    "type": "subscribed",
+    "subscription": { "startDate": "2025-09-01", "endDate": "2025-09-30", "assignedSlot": "F1-S05" },
+    "qrCode": "ID-0005"
+  },
+  {
+    "id": 6,
+    "name": "Vikram S",
+    "vehicleNumber": "TN59AB0006",
+    "type": "subscribed",
+    "subscription": { "startDate": "2025-09-01", "endDate": "2025-09-30", "assignedSlot": "F1-S06" },
+    "qrCode": "ID-0006"
+  },
+  {
+    "id": 7,
+    "name": "Deepa N",
+    "vehicleNumber": "TN59AB0007",
+    "type": "subscribed",
+    "subscription": { "startDate": "2025-09-01", "endDate": "2025-09-30", "assignedSlot": "F1-S07" },
+    "qrCode": "ID-0007"
+  },
+  {
+    "id": 8,
+    "name": "Raghav P",
+    "vehicleNumber": "TN59AB0008",
+    "type": "subscribed",
+    "subscription": { "startDate": "2025-09-01", "endDate": "2025-09-30", "assignedSlot": "F1-S08" },
+    "qrCode": "ID-0008"
+  },
+  {
+    "id": 9,
+    "name": "Meena V",
+    "vehicleNumber": "TN59AB0009",
+    "type": "subscribed",
+    "subscription": { "startDate": "2025-09-01", "endDate": "2025-09-30", "assignedSlot": "F1-S09" },
+    "qrCode": "ID-0009"
+  },
+  {
+    "id": 10,
+    "name": "Karthik S",
+    "vehicleNumber": "TN59AB0010",
+    "type": "subscribed",
+    "subscription": { "startDate": "2025-09-01", "endDate": "2025-09-30", "assignedSlot": "F1-S10" },
+    "qrCode": "ID-0010"
+  },
+  {
+    "id": 11,
+    "name": "Divya R",
+    "vehicleNumber": "TN59AB0011",
+    "type": "subscribed",
+    "subscription": { "startDate": "2025-09-01", "endDate": "2025-09-30", "assignedSlot": "F2-S01" },
+    "qrCode": "ID-0011"
+  },
+  {
+    "id": 12,
+    "name": "Ajay K",
+    "vehicleNumber": "TN59AB0012",
+    "type": "subscribed",
+    "subscription": { "startDate": "2025-09-01", "endDate": "2025-09-30", "assignedSlot": "F2-S02" },
+    "qrCode": "ID-0012"
+  },
+
+  { "id": 13, "name": "", "vehicleNumber": "", "type": "subscribed", "subscription": { "startDate": "", "endDate": "", "assignedSlot": "F2-S03" }, "qrCode": "" },
+  { "id": 14, "name": "", "vehicleNumber": "", "type": "subscribed", "subscription": { "startDate": "", "endDate": "", "assignedSlot": "F2-S04" }, "qrCode": "" },
+  { "id": 15, "name": "", "vehicleNumber": "", "type": "subscribed", "subscription": { "startDate": "", "endDate": "", "assignedSlot": "F2-S05" }, "qrCode": "" },
+  { "id": 16, "name": "", "vehicleNumber": "", "type": "subscribed", "subscription": { "startDate": "", "endDate": "", "assignedSlot": "F2-S06" }, "qrCode": "" },
+  { "id": 17, "name": "", "vehicleNumber": "", "type": "subscribed", "subscription": { "startDate": "", "endDate": "", "assignedSlot": "F2-S07" }, "qrCode": "" },
+  { "id": 18, "name": "", "vehicleNumber": "", "type": "subscribed", "subscription": { "startDate": "", "endDate": "", "assignedSlot": "F2-S08" }, "qrCode": "" },
+  { "id": 19, "name": "", "vehicleNumber": "", "type": "subscribed", "subscription": { "startDate": "", "endDate": "", "assignedSlot": "F2-S09" }, "qrCode": "" },
+  { "id": 20, "name": "", "vehicleNumber": "", "type": "subscribed", "subscription": { "startDate": "", "endDate": "", "assignedSlot": "F2-S10" }, "qrCode": "" }
+]

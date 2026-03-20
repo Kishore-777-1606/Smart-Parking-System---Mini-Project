@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Parking System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Background Elements -->
+  <div class="background-pattern"></div>
+  
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <div class="logo-icon">🚗</div>
+        <h1 class="logo-text">Smart Parking</h1>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- QR Input Section -->
+      <section class="section" id="qrSection">
+        <div class="card qr-input-card">
+          <div class="card-header">
+            <div class="icon-container">
+              <div class="qr-icon">📱</div>
+            </div>
+            <h2 class="card-title">Verify Your Parking</h2>
+            <p class="card-description">
+              Enter your QR code to access parking information and manage your reservation
+            </p>
+          </div>
+          
+          <div class="card-body">
+            <div class="input-group">
+              <label for="qrInput" class="input-label">User-Id</label>
+              <div class="input-wrapper">
+                <input 
+                  type="text" 
+                  id="qrInput" 
+                  class="input-field"
+                  placeholder="Enter your User-Id here"
+                  autocomplete="off"
+                />
+                <div class="input-icon">🔍</div>
+              </div>
+            </div>
+            
+            <button id="submitBtn" class="btn btn-primary">
+              <span class="btn-text">Verify Code</span>
+              <div class="btn-loader"></div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dashboard Section -->
+      <section class="section" id="dashboardSection" style="display: none;">
+        <div class="card dashboard-card">
+          <div class="card-header">
+            <div class="icon-container success">
+              <div class="success-icon">✓</div>
+            </div>
+            <h2 class="card-title">Parking Details</h2>
+            <p class="card-description">
+              Your parking information has been verified successfully
+            </p>
+          </div>
+
+          <div class="card-body">
+            <div class="info-grid">
+              
+              <div class="info-item">
+                <div class="info-label">User-Id</div>
+                <div class="info-value" id="qrDisplay"></div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-label">Name</div>
+                <div class="info-value" id="nameDisplay"></div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-label">Vehicle Number</div>
+                <div class="info-value vehicle-number" id="vehicleDisplay"></div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-label">Parking Slot</div>
+                <div class="info-value slot-number" id="slotDisplay"></div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-label">Floor</div>
+                <div class="info-value" id="floorDisplay"></div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-label">Status</div>
+                <div class="info-value status-badge" id="statusDisplay"></div>
+              </div>
+
+            </div>
+
+            <div class="actions">
+              <button id="backBtn" class="btn btn-secondary">
+                <span class="btn-text">← Completed</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Smart Parking System. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const qrSection = document.getElementById('qrSection');
+    const dashboardSection = document.getElementById('dashboardSection');
+
+    const qrInput = document.getElementById('qrInput');
+    const submitBtn = document.getElementById('submitBtn');
+
+    const qrDisplay = document.getElementById('qrDisplay');
+    const nameDisplay = document.getElementById('nameDisplay');
+    const vehicleDisplay = document.getElementById('vehicleDisplay');
+    const slotDisplay = document.getElementById('slotDisplay');
+    const floorDisplay = document.getElementById('floorDisplay');
+    const statusDisplay = document.getElementById('statusDisplay');
+
+    const backBtn = document.getElementById('backBtn');
+
+    // Enhanced submit with loading state
+    submitBtn.addEventListener('click', async () => {
+      const qrValue = qrInput.value.trim();
+      if (!qrValue) {
+        showAlert("Please enter QR code!", "error");
+        return;
+      }
+
+      // Add loading state
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+
+      try {
+        const res = await fetch("http://localhost:3000/api/verify-qr", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ qrCode: qrValue })
+        });
+        const data = await res.json();
+        
+        if (!res.ok) {
+          showAlert(data.message, "error");
+          return;
+        }
+
+        // Populate data
+        qrDisplay.innerText = qrValue;
+        nameDisplay.innerText = data.name;
+        vehicleDisplay.innerText = data.vehicleNumber;
+        slotDisplay.innerText = data.slotId;
+        floorDisplay.innerText = data.floor;
+        statusDisplay.innerText = data.status;
+
+        // Smooth transition between sections
+        qrSection.style.opacity = '0';
+        setTimeout(() => {
+          qrSection.style.display = "none";
+          dashboardSection.style.display = "block";
+          dashboardSection.style.opacity = '0';
+          setTimeout(() => {
+            dashboardSection.style.opacity = '1';
+          }, 50);
+        }, 300);
+
+      } catch (err) {
+        showAlert("Error connecting to server. Please try again.", "error");
+        console.error(err);
+      } finally {
+        // Remove loading state
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+      }
+    });
+
+    backBtn.addEventListener('click', () => {
+      // Smooth transition back
+      dashboardSection.style.opacity = '0';
+      setTimeout(() => {
+        qrSection.style.display = "block";
+        dashboardSection.style.display = "none";
+        qrInput.value = "";
+        qrSection.style.opacity = '1';
+      }, 300);
+    });
+
+    // Enhanced alert function
+    function showAlert(message, type = 'info') {
+      // Create custom alert overlay
+      const alertDiv = document.createElement('div');
+      alertDiv.className = `custom-alert ${type}`;
+      alertDiv.innerHTML = `
+        <div class="alert-content">
+          <div class="alert-icon">${type === 'error' ? '⚠️' : 'ℹ️'}</div>
+          <div class="alert-message">${message}</div>
+          <button class="alert-close">×</button>
+        </div>
+      `;
+      
+      document.body.appendChild(alertDiv);
+      
+      // Auto remove after 4 seconds
+      setTimeout(() => {
+        if (alertDiv.parentNode) {
+          alertDiv.classList.add('fade-out');
+          setTimeout(() => alertDiv.remove(), 300);
+        }
+      }, 4000);
+      
+      // Close on click
+      alertDiv.querySelector('.alert-close').addEventListener('click', () => {
+        alertDiv.classList.add('fade-out');
+        setTimeout(() => alertDiv.remove(), 300);
+      });
+    }
+
+    // Enter key support
+    qrInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        submitBtn.click();
+      }
+    });
+
+    // Auto-focus input on load
+    window.addEventListener('load', () => {
+      qrInput.focus();
+    });
+  </script>
+</body>
+</html>

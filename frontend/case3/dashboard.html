@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscription Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css"> <!-- Dashboard-specific CSS -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+  <!-- Navbar (Matching Home Page) -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="../case2/index.html" class="logo">SmartParking</a>
+      <nav class="nav-links">
+        <a href="../case2/index.html">Home</a>
+        <a href="../case2/index.html">Slots</a>
+        <a href="../case2/index.html">Contact</a>
+        <a href="../case2/index.html">About</a>
+        <a href="registration.html" class="btn-primary">Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container page-content">
+    <h1 class="page-title">Subscription Dashboard</h1>
+
+    <div class="grid">
+      <!-- User Info Card -->
+      <div class="card">
+        <h2>User Details</h2>
+        <div class="user-info">
+          <p><strong>Name:</strong> <span id="name"></span></p>
+          <p><strong>Age:</strong> <span id="age"></span></p>
+          <p><strong>Phone:</strong> <span id="phone"></span></p>
+          <p><strong>Vehicle Number:</strong> <span id="vehicle"></span></p>
+          <p><strong>Package:</strong> <span id="package"></span></p>
+          <p><strong>Price:</strong> ₹<span id="price"></span></p>
+          <p><strong>Assigned Slot:</strong> <span id="slotId"></span></p>
+        </div>
+      </div>
+
+      <!-- QR Code Card -->
+      <div class="card">
+        <h2>Your QR Code</h2>
+        <div id="qrcode" class="qr-container"></div>
+      </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="button-container">
+      <button id="backHomeBtn" class="btn-primary">⬅ Completed</button>
+    </div>
+    
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>&copy; 2025 SmartParking. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
